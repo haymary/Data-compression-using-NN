@@ -28,9 +28,9 @@ class CompressionModel:
     def train(self, train_set, block_size, layer_step, number_of_layers, epoch, batch_size, split_rate):
         pass
 
-    def encode(self, image):
+    def encode(self, img):
 
-        img = misc.imread(image, flatten=True)
+        # img = misc.imread(image, flatten=True)
 
         self.image_shape = img.shape
         blocks = self.image_to_blocks(img, self.block_size, img.shape)

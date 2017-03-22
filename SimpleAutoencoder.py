@@ -15,14 +15,14 @@ class SimpleAutoencoder(CompressionModel):
         num_l = self.input_image_size - layer_step
         encoded = Dense(num_l, activation='relu')(input_img) #23
 
-        for i in range(1, number_of_layers): #21 19 17
+        for _ in range(1, number_of_layers): #21 19 17
             num_l -= layer_step
             encoded = Dense(num_l, activation='relu')(encoded)
 
         num_l += layer_step
         decoded = Dense(num_l, activation='relu')(encoded) #19
 
-        for i in range(0, number_of_layers-1): #21 23 25
+        for _ in range(0, number_of_layers-1): #21 23 25
             num_l += layer_step
             decoded = Dense(num_l, activation='relu')(decoded)
 

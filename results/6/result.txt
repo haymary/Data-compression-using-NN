@@ -1,0 +1,12 @@
+------PARAMS------
+Size of trainse = 24 
+block_size = 15
+layer_step = 1
+number_of_layers = 5
+epoch = 15
+batch_size = 200
+split_rate = 0.3
+------RESULTS-----
+MSE = 12427.3
+PSNR = 39.4706103941
+Compression ratio: 223

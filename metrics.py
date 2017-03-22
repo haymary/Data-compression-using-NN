@@ -28,3 +28,20 @@ def print_metrics(orig_img, comp_img, decoded_img):
     print "MSE = ", mse
     print "PSNR = ", psnr
     print "Compression ratio: ", comp_ratio
+
+def write_to_file(path_to_results, orig_img, comp_img, decoded_img, train_set_size, block_size, layer_step, number_of_layers, epoch, batch_size, split_rate):
+    mse, psnr, comp_ratio = get_metrics(orig_img, comp_img, decoded_img)
+    file = open(path_to_results + 'result.txt', 'w+')
+    file.write("------PARAMS------" + "\n")
+    file.write("Size of trainse = {} \n".format(train_set_size) )
+    file.write("block_size = " + str(block_size) + "\n")
+    file.write("layer_step = " + str(layer_step) + "\n")
+    file.write("number_of_layers = " + str(number_of_layers) + "\n")
+    file.write("epoch = " + str(epoch) + "\n")
+    file.write("batch_size = " + str(batch_size) + "\n")
+    file.write("split_rate = " + str(split_rate) + "\n")
+    file.write("------RESULTS-----" + "\n")
+    file.write("MSE = " + str(mse) + "\n")
+    file.write("PSNR = " + str(psnr) + "\n")
+    file.write("Compression ratio: " + str(comp_ratio) + "\n")
+    file.close()
