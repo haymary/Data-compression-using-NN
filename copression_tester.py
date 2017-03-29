@@ -51,7 +51,7 @@ for block_size in blocks:
 
             	result = Image.fromarray((s * 255).astype(np.uint8))
             	result.save(path_to_result + "decoded.jpg")
-                misc.imsave('using_imsave.jpg', s)
+                misc.imsave(path_to_result + 'using_imsave.jpg', s)
 
             	r = np.array(r)
             	s = np.array(s)
