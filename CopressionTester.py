@@ -15,7 +15,7 @@ number_of_epoches = 15
 batch_size = 200
 split_rate = 0.3
 
-blocks = [x for x in range(5, 50, 10)]
+blocks = [x for x in range(15, 50, 10)]
 num_epoch = [x for x in range(100, 200, 20)]
 num_layers = [x in range(2, 10, 1)]
 num_steps = [x in range(1, 9, 1)]
@@ -29,7 +29,7 @@ for filename in glob.glob('pics/sample_sm/*.jpg'):
 	image_list.append(im)
 image_list =  tuple(image_list)
 
-num_try = 8
+num_try = 12
 for block_size in blocks:
     for epoches in num_epoch:
         for number_of_layers in num_layers:
