@@ -1,3 +1,7 @@
+from keras.layers import Input, Dense
+from keras.models import Model
+import numpy as np
+
 class BlockAutoencoder():
     #BEGIN VARS
     encoder = ""
@@ -9,8 +13,8 @@ class BlockAutoencoder():
     #END VARS
 
     def train(self, train_set, block_size, layer_step, number_of_layers, epoch, batch_size, split_rate):
-        self.init_values(x_train, block_size, layer_step, number_of_layers)
-
+        self.init_values(train_set, block_size, layer_step, number_of_layers)
+        x_train = train_set
         input_img = Input(shape=(self.input_image_size,))
         num_l = self.input_image_size - layer_step
         encoded = Dense(num_l, activation='relu')(input_img) #23
@@ -77,3 +81,9 @@ class BlockAutoencoder():
         self.encoding_dim = block_size * block_size - ((number_of_layers) * layer_step)
         self.input_image_size = block_size * block_size
         self.block_size = block_size
+
+    def split_list(self, my_list, percent):
+        s = len(my_list)
+        A = my_list[0:int(s*percent)]
+        B = my_list[int(s*percent):s]
+        return A, B

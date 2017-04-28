@@ -6,9 +6,9 @@ import numpy as np
 
 img = misc.imread("pics/blocks/rand_ok.jpg", flatten=True, mode = "L")
 img = img / 255.
-img = np.zeros([5,5])
-classificator = ImageClassificator()
 
-img_class = classificator.getImageClass(img)
+from BlockAutoencoder import BlockAutoencoder
 
-print(img_class)
+x_simple = np.array([img])
+simple = BlockAutoencoder()
+simple.train(x_simple, 5, 1, 5, 100, 200, 0.3)

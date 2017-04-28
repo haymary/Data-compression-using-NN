@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+import math
 
 def blocks_to_image(blocks, image_shape, box_size):
     x, y = 0, 0
@@ -19,7 +20,7 @@ def blocks_to_image(blocks, image_shape, box_size):
                 image = np.vstack((image, row[0 : image_shape[0] - image.shape[0], 0 : image_shape[1]]))
             row = []
     return image
-    
+
 def to_square(matrix, box_size):
     return np.reshape(matrix, (box_size, box_size))
 
