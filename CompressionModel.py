@@ -59,9 +59,9 @@ class CompressionModel:
         f.close()
 
     def load_models(self, num = ""):
-        self.decoder = load_model("models/decoder" + num + ".h5")
-        self.encoder = load_model("models/encoder" + num + ".h5")
-        f = open('models/headers' + num + '.txt', 'r')
+        self.decoder = load_model("results/models/decoder" + num + ".h5")
+        self.encoder = load_model("results/models/encoder" + num + ".h5")
+        f = open('results/models/headers' + num + '.txt', 'r')
         for line in f:
             data = line.split()
             self.block_size = int(data[0])

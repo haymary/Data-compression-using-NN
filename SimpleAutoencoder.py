@@ -11,7 +11,7 @@ class SimpleAutoencoder(CompressionModel):
 
         self.init_values(train_set, block_size, layer_step, number_of_layers)
 
-        input_img = Input(shape=(self.input_image_size,))
+        input_img = Input(shape=(block_size, block_size,))
         num_l = self.input_image_size - layer_step
         encoded = Dense(num_l, activation='relu')(input_img) #23
 
@@ -65,5 +65,5 @@ class SimpleAutoencoder(CompressionModel):
         autoencoder.fit(x_train, x_train,
                         nb_epoch=epoch,
                         batch_size=batch_size,
-                        shuffle=True,   
+                        shuffle=True,
                         validation_data=(x_test, x_test))

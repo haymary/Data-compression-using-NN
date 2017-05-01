@@ -1,3 +1,4 @@
+
 import numpy as np
 from skimage.segmentation import felzenszwalb
 from working_with_images import blocks_to_image
